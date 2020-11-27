@@ -1,0 +1,88 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+{% block title %} CheckO ut Page{% endblock %}
+{% block body %}
+
+
+
+
+                <div class="col-md-8">
+                    <div class="billing-details">
+                            <table class="shopping-cart-table table">
+                                <thead>
+                                <tr>
+                                    <th>Name</th>   <td>{{ order.name }}</td>
+                                <tr>
+                                <tr>
+                                    <th>Surname</th>   <td>{{ order.surname }}</td>
+                                <tr>
+                                <tr>
+                                    <th>Address</th>   <td>{{ order.address }}</td>
+                                <tr>
+                                <tr>
+                                    <th>City</th>   <td>{{ order.city }}</td>
+                                <tr>
+                                <tr>
+                                    <th>City</th>   <td>{{ order.phone }}</td>
+                                <tr>
+                                <tr>
+                                    <th>Date</th>   <td>{{ order.create_at }}</td>
+                                <tr>
+                                <tr>
+                                    <th>Note</th>   <td>    {{ order.note }}      </td>
+                                <tr>
+                                <tr>
+                                    <th>Status</th>   <td>{{ order.status }} </td>
+                                <tr>
+
+                                </thead>
+
+                            </table>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="order-summary clearfix">
+                        <div class="section-title">
+                            <h3 class="title">Order Review</h3>
+                        </div>
+                        <table class="shopping-cart-table table">
+                            <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th></th>
+                                <th class="text-center">Price</th>
+                                <th class="text-center">Quantity</th>
+                                <th class="text-center">Total</th>
+                                <th class="text-right"></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for rs in items %}
+                                <tr>
+                                    <td class="thumb"><img src="{{ rs.product.image.url }}" alt=""></td>
+                                    <td class="details"> <a href="#">{{ rs.product.name }}</a>    </td>
+                                    <td class="price text-center"><strong>$ {{ rs.price }}</strong></td>
+                                    <td class="qty text-center"><strong>{{ rs.quantity }}</strong></td>
+                                    <td class="total text-center"><strong class="primary-color">$ {{ rs.total }}</strong></td>
+                                    <td class="text-right"></td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+
+
+
+
+
+                </div>
+                <!-- /row -->
+            </div>
+            <!-- /container -->
+        </div>
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'shop/product_list.html' %}
+
+{% block body %}
+<h2 style="margin-top:40px;" class="text-center">Popularity based Recommendation</h2>
+<div class="row">
+{%for a in  object_list.itertuples %}
+<div class="col-md-3">
+
+
+    <div class="card-header"> Average rating: {{a.avg_rating}} | Total rating: {{ a.num_ratings }}  </div>
+            <div class="card-body">
+                  <div class="card-title"> Product name : {{a.name}}
+
+</div>
+        </div>
+     <p class="card-text text_black"> {{a.description}}</p>
+
+    </div>
+<br>
+    <br>
+
+{% endfor %}
+</div>
+
+{% endblock %}

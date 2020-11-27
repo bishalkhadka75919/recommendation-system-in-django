@@ -1,0 +1,11 @@
+
+
+{% block title %}
+<h2><a href="{% url 'shop:product_detail' review.product.id %}">{{ review.product.name }}</a></h2>
+{% endblock %}
+
+{% block content %}
+<h4>Rated {{ review.rating }} of 5 by <a href="{% url 'shop:user_review_list' review.user_name %}" >{{ review.user_name }}</a></h4>
+<p>{{ review.pub_date }}</p>
+<p>{{ review.comment }}</p>
+{% endblock %}

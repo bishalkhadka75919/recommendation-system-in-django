@@ -1,0 +1,23 @@
+
+{% block title %}
+<h2>Latest reviews</h2>
+{% endblock %}
+
+{% block content %}
+{% if latest_review_list %}
+<div class="row">
+    {% for review in latest_review_list %}
+    <div class="col-xs-6 col-lg-4">
+        <h4><a href="{% url 'shop:review_detail' review.id %}">
+        {{ review.product.name }}
+        </a></h4>
+        <h6>Rated {{ review.rating }} of 5 by <a href="{% url 'shop:user_review_list' review.user_name %}" >{{ review.user_name }}</a></h6>
+        <p>{{ review.comment }}</p>
+        review.id
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<p>No reviews are available.</p>
+{% endif %}
+{% endblock %}

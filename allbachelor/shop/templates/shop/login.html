@@ -1,0 +1,58 @@
+
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+     <link href="{%static 'shop/css/login.css' %}" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+{% if error %}
+<h4>{{ error }}</h4>
+{% endif %}
+	<img class="wave" src="{%static 'shop/images/wave.png' %}">
+	<div class="container">
+		<div class="img">
+	{% if error %}
+<h4 style="color:red">{{ error }}</h4>
+{% endif %}
+		</div>
+		<div class="login-content">
+ <form method="POST" >
+         {% csrf_token %}
+
+				<img src="{%static 'shop/images/avatar.svg' %}">
+				<h2 class="title">Welcome Back</h2>
+           		<div class="input-div one">
+           		   <div class="i">
+           		   		<i class="fas fa-user"></i>
+           		   </div>
+           		   <div class="div">
+           		   		<h5>Username</h5>
+           		   		<input type="text" name="username" class="input" />
+
+           		   </div>
+           		</div>
+           		<div class="input-div pass">
+           		   <div class="i">
+           		    	<i class="fas fa-lock"></i>
+           		   </div>
+           		   <div class="div">
+           		    	<h5>Password</h5>
+           		    	<input type="password" name="password" class="input"/>
+            	   </div>
+            	</div>
+            	 <a href="shop:signup">Want to sign up with email? Sign Up</a>
+            	<input type="submit" name="submit" class="btn" value="submit">
+            </form>
+
+        </div>
+    </div>
+   <script type="text/javascript" src="{%static 'shop/js/main.js' %}"></script>
+</body>
+</html>

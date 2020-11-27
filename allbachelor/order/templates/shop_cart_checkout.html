@@ -1,0 +1,113 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+{% block title %} Chec kOut Page{% endblock %}
+{% block css %}
+<link href="{%static 'shop/css/checkoutform.css' %}" rel="stylesheet">
+<link href="{%static 'shop/css/shoppingcart.css' %}" rel="stylesheet">
+
+{% endblock %}
+{% block body %}
+<div class="content">
+
+  <div class="col-md-2"></div>
+  <div class="col-md-4">
+    <h3><label>Order details</label></h3>
+    <form id="checkout-form" name="order" class="clearfix" method="post">
+        {% csrf_token %}
+      <div class="form-group">
+        <label for="">Name on Card</label>
+        <input type="text" name="name" placeholder="Bishal" class="form-control" required id="id_name" value="{{ user.first_name }}" />
+      </div>
+        <div class="form-group">
+        <label for="">SurName on Card</label>
+            <input class="form-control" type="text" name="surname" placeholder="Last Name" required id="id_surname" value="{{ user.last_name }}">
+      </div>
+         <div class="form-group">
+        <label for="">Address</label>
+         <input class="form-control" type="text" name="address" placeholder="Address" required id="id_address">
+      </div>
+         <div class="form-group">
+        <label for="">City</label>
+         <input class="form-control" type="text" name="city" placeholder="City" required id="id_city" />
+      </div>
+
+      <div class="form-group">
+        <label for="">Contact Number</label>
+        <input class="form-control" type="text" name="phone" placeholder="Telephone" required id="id_phone" />
+      </div>
+      <div class="form-group">
+        <label for="">Total payment:</label>
+       <input class="input" type="text" name="amount" value="Order Total : ${{ cartwithtax }}" readonly>
+      </div>
+        <button type="submit" class="btn btn-success ready">
+       Ready to buy ?
+    </button>
+    </form>
+  </div>
+</div>
+
+
+
+            <div class="row">
+                <div class="order-summary clearfix">
+                    <div class="section-title">
+                        <h3 class="title">Order Review</h3>
+                    </div>
+
+
+<!--                 -->
+
+
+
+
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+ <div class="cart">
+    <ul class="cartWrap">
+        {% for rs in shopcart %}
+      <li class="items even">
+    <div class="infoWrap">
+        <div class="cartSection">
+        <img src="{{rs.product.image.url}}" alt="" class="itemImg" />
+          <p class="itemNumber">#QUE-007544-002</p>
+          <h3>{{rs.product.name}}</h3>
+
+           <p> <input type="text"  class="qty" placeholder="{{rs.quantity}}"/>  X <del>Rs.{{rs.product.price}}</del> Rs.{{ rs.product.discount_price }}</p>
+
+        </div>
+
+        <div class="prodTotal cartSection">
+          <p class="stockStatus">= Rs. {{ rs.amount }}</p>
+        </div>
+              <div class="cartSection removeWrap">
+           <a href="/order/deletefromcart/{{ rs.id }}" class="remove">x</a>
+        </div>
+      </div>
+      </li>
+        {% endfor %}
+
+
+    </ul>
+  </div>
+
+  <div class="promoCode"><label for="promo">Have A Promo Code?</label><input type="text" name="promo" placholder="Enter Code" />
+  <a href="#" class="btn"></a></div>
+
+  <div class="subtotal cf">
+    <ul>
+      <li class="totalRow"><span class="label">Subtotal</span><span class="value">Rs. {{ carttotal }}</span></li>
+
+          <li class="totalRow"><span class="label">Shipping</span><span class="value">Free Shipping</span></li>
+
+            <li class="totalRow"><span class="label">Tax</span><span class="value">{{carttax}}</span></li>
+            <li class="totalRow final"><span class="label">Total</span><span class="value">{{cartwithtax }}</span></li>
+      <li class="totalRow"><a href="/order/checkout" class="btn continue">Checkout</a></li>
+    </ul>
+  </div>
+</div>
+
+
+{% endblock %}

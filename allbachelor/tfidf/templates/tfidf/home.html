@@ -1,0 +1,48 @@
+{% extends 'shop/product_list.html' %}
+
+
+{% block body %}
+
+<h2 style="margin-top:40px;" class="text-center">All products</h2>
+
+ <div class="container">
+
+        <div class="gallery">
+
+
+             {% for a in object_list %}
+            <a href="{% url 'tfidf:detail' id=a.product.id %}">
+    <div class="gallery-item" tabindex="0">
+
+         <img src="{{a.product.image.url}}"  class="gallery-image" alt="">
+
+                <div class="gallery-item-info">
+
+                    <ul>
+                        <li class="gallery-item-likes"><i class="fas fa-star" aria-hidden="true"></i>{{ a.product.average_rating | floatformat }} average rating</li>
+                        <li class="gallery-item-comments"><i class="fas fa-comment" aria-hidden="true"></i> {{ a.product.review_set.count }} reviews</li>
+                    </ul>
+                </div>
+    </div>
+
+                 {{a.product.name}}
+
+          {% endfor %}
+<p>
+<div class="pagination pagination-centered">
+    <center>
+        <span class="step-links">
+            {% if object_list.has_previous %}
+            <a href="?page={{ object_list.previous_page_number }}">previous</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ object_list.number }} of {{ object_list.paginator.num_pages }}.
+            </span>
+
+            {% if object_list.has_next %}
+            <a href="?page={{ object_list.next_page_number }}">next</a>
+            {% endif %}
+        </span>
+</div>
+{% endblock %}

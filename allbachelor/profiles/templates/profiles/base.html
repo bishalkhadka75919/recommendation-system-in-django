@@ -1,0 +1,651 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+    {% block css %}{% endblock %}
+
+    <!-- JS
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+
+</head>
+<body>
+{% load bootstrap3 %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+	<title>AllBachelor- Shop</title>
+	<!-- Meta tag Keywords -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8" />
+	<meta name="keywords" content=""
+	/>
+	<script>
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+	</script>
+	<!-- //Meta tag Keywords -->
+<!-- <link href="{% static 'img/shoplogo.png' %}" rel="icon">-->
+<!--  <link href="{% static 'img/shoplogo.png' %}" rel="apple-touch-icon">-->
+
+  <!-- Google Fonts -->
+
+	<!-- Custom-Files -->
+	<link href="{% static 'shop/css/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all" />
+	<!-- Bootstrap css -->
+	<link href="{% static 'shop/css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+	<!-- Main css -->
+	<link rel="stylesheet" href="{% static 'shop/css/fontawesome-all.css' %}">
+	<!-- Font-Awesome-Icons-CSS -->
+	<link href="{% static 'shop/css/popuo-box.css' %}" rel="stylesheet" type="text/css" media="all" />
+	<!-- pop-up-box -->
+	<link href="{% static 'shop/css/menu.css' %}" rel="stylesheet" type="text/css" media="all" />
+	<!-- menu style -->
+
+	<link href="{% static 'shop/css/owl.carousel.css' %}" rel="stylesheet" type="text/css" media="all">
+	<link rel="stylesheet" type="text/css" href="{% static 'shop/css/main-color.css' %}">
+<!--	 <link rel="stylesheet" type="text/css" href="{% static 'shop/css/font-awesome.min.css' %}">-->
+	<!-- //Custom-Files -->
+
+	<!-- matrixfactorization fonts -->
+	<link href="//fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&amp;subset=latin-ext" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese"
+	    rel="stylesheet">
+
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script src="{% static 'shop/js/jquery-2.2.3.min.js' %}"></script>
+	<!-- //jquery -->
+
+	<script src="{% static 'shop/js/productslider.js' %}"></script>
+
+
+	<!-- nav smooth scroll -->
+	<script>
+		$(document).ready(function () {
+			$(".dropdown").hover(
+				function () {
+					$('.dropdown-menu', this).stop(true, true).slideDown("fast");
+					$(this).toggleClass('open');
+				},
+				function () {
+					$('.dropdown-menu', this).stop(true, true).slideUp("fast");
+					$(this).toggleClass('open');
+				}
+			);
+		});
+	</script>
+	<!-- //nav smooth scroll -->
+
+	<!-- popup modal (for location)-->
+
+	<script src="{% static 'shop/js/jquery.magnific-popup.js' %}"></script>
+	<script>
+		$(document).ready(function () {
+			$('.popup-with-zoom-anim').magnificPopup({
+				type: 'inline',
+				fixedContentPos: false,
+				fixedBgPos: true,
+				overflowY: 'auto',
+				closeBtnInside: true,
+				preloader: false,
+				midClick: true,
+				removalDelay: 300,
+				mainClass: 'my-mfp-zoom-in'
+			});
+
+		});
+	</script>
+	<!-- //popup modal (for location)-->
+
+	<!-- cart-js -->
+	<script src="{% static 'shop/js/minicart.js' %}"></script>
+
+
+
+	<!-- scroll seller -->
+
+	<script src="{% static 'shop/js/scroll.js' %}"></script>
+	<!-- //scroll seller -->
+
+	<!-- smoothscroll -->
+
+	<script src="{% static 'shop/js/SmoothScroll.min.js' %}"></script>
+	<!-- //smoothscroll -->
+
+	<!-- start-smooth-scrolling -->
+	 <script src="{% static 'shop/js/move-top.js' %}"></script>
+
+	 <script src="{% static 'shop/js/easing.js' %}"></script>
+
+	 <script src="{% static 'shop/js/jQuery.js' %}"></script>
+	<script src="{% static 'shop/js/owl.carousel.min.js' %}"></script>
+
+	<script src="{% static 'shop/js/globle.js' %}"></script>
+
+	<script>
+		jQuery(document).ready(function ($) {
+			$(".scroll").click(function (event) {
+				event.preventDefault();
+
+				$('html,body').animate({
+					scrollTop: $(this.hash).offset().top
+				}, 1000);
+			});
+		});
+	</script>
+	<!-- //end-smooth-scrolling -->
+
+	<!-- smooth-scrolling-of-move-up -->
+	<script>
+		$(document).ready(function () {
+			/*
+			var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear'
+			};
+			*/
+			$().UItoTop({
+				easingType: 'easeOutQuart'
+			});
+
+		});
+	</script>
+	<!-- //smooth-scrolling-of-move-up -->
+
+	<!-- for bootstrap working -->
+	<script src="{% static 'shop/js/bootstrap.js' %}"></script>
+	<script src="{% static 'shop/js/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static 'shop/js/biolife.framework.js' %}"></script>
+    <script src="{% static 'shop/js/functions.js' %}"></script>
+
+
+
+
+	<script src="{% static 'shop/js/jquery-2.2.3.min.js' %}"></script>
+	<!-- //jquery -->
+
+	<script src="{% static 'shop/js/productslider.js' %}"></script>
+
+
+	<!-- nav smooth scroll -->
+	<script>
+		$(document).ready(function () {
+			$(".dropdown").hover(
+				function () {
+					$('.dropdown-menu', this).stop(true, true).slideDown("fast");
+					$(this).toggleClass('open');
+				},
+				function () {
+					$('.dropdown-menu', this).stop(true, true).slideUp("fast");
+					$(this).toggleClass('open');
+				}
+			);
+		});
+	</script>
+	<!-- //nav smooth scroll -->
+
+	<!-- popup modal (for location)-->
+
+	<script src="{% static 'shop/js/jquery.magnific-popup.js' %}"></script>
+	<script>
+		$(document).ready(function () {
+			$('.popup-with-zoom-anim').magnificPopup({
+				type: 'inline',
+				fixedContentPos: false,
+				fixedBgPos: true,
+				overflowY: 'auto',
+				closeBtnInside: true,
+				preloader: false,
+				midClick: true,
+				removalDelay: 300,
+				mainClass: 'my-mfp-zoom-in'
+			});
+
+		});
+	</script>
+	<!-- //popup modal (for location)-->
+
+	<!-- cart-js -->
+	<script src="{% static 'shop/js/minicart.js' %}"></script>
+	<script>
+		paypals.minicarts.render(); //use only unique class names other than paypals.minicarts.Also Replace same class name in css and minicart.min.js
+
+		paypals.minicarts.cart.on('checkout', function (evt) {
+			var items = this.items(),
+				len = items.length,
+				total = 0,
+				i;
+
+			// Count the number of each item in the cart
+			for (i = 0; i < len; i++) {
+				total += items[i].get('quantity');
+			}
+
+			if (total < 3) {
+				alert('The minimum order quantity is 3. Please add more to your shopping cart before checking out');
+				evt.preventDefault();
+			}
+		});
+	</script>
+	<!-- //cart-js -->
+
+	<!-- password-script -->
+	<script>
+		window.onload = function () {
+			document.getElementById("password1").onchange = validatePassword;
+			document.getElementById("password2").onchange = validatePassword;
+		}
+
+		function validatePassword() {
+			var pass2 = document.getElementById("password2").value;
+			var pass1 = document.getElementById("password1").value;
+			if (pass1 != pass2)
+				document.getElementById("password2").setCustomValidity("Passwords Don't Match");
+			else
+				document.getElementById("password2").setCustomValidity('');
+			//empty string means no validation error
+		}
+	</script>
+	<!-- //password-script -->
+
+	<!-- scroll seller -->
+
+	<script src="{% static 'shop/js/scroll.js' %}"></script>
+	<!-- //scroll seller -->
+
+	<!-- smoothscroll -->
+
+	<script src="{% static 'shop/js/SmoothScroll.min.js' %}"></script>
+	<!-- //smoothscroll -->
+
+	<!-- start-smooth-scrolling -->
+	 <script src="{% static 'shop/js/move-top.js' %}"></script>
+
+	 <script src="{% static 'shop/js/easing.js' %}"></script>
+
+	 <script src="{% static 'shop/js/jQuery.js' %}"></script>
+	<script src="{% static 'shop/js/owl.carousel.min.js' %}"></script>
+
+	<script src="{% static 'shop/js/globle.js' %}"></script>
+
+	<script>
+		jQuery(document).ready(function ($) {
+			$(".scroll").click(function (event) {
+				event.preventDefault();
+
+				$('html,body').animate({
+					scrollTop: $(this.hash).offset().top
+				}, 1000);
+			});
+		});
+	</script>
+	<!-- //end-smooth-scrolling -->
+
+	<!-- smooth-scrolling-of-move-up -->
+	<script>
+		$(document).ready(function () {
+			/*
+			var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear'
+			};
+			*/
+			$().UItoTop({
+				easingType: 'easeOutQuart'
+			});
+
+		});
+	</script>
+	<!-- //smooth-scrolling-of-move-up -->
+
+	<!-- for bootstrap working -->
+	<script src="{% static 'shop/js/bootstrap.js' %}"></script>
+	<script src="{% static 'shop/js/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static 'shop/js/biolife.framework.js' %}"></script>
+    <script src="{% static 'shop/js/functions.js' %}"></script>
+
+</head>
+<body>
+	<!-- top-header -->
+	<div class="agile-main-top">
+		<div class="container-fluid">
+			<div class="row main-top-w3l py-2">
+				<div class="col-lg-4 header-most-top">
+						<p class="text-white"> Welcome to our online store!:: <i class="{% static 'fas fa-gift' %}"></i><a href="#" class="text-white"> Daily Deals</a></p>
+
+				</div>
+				<div class="col-lg-8 header-right mt-lg-0 mt-2">
+					<!-- header lists -->
+					<ul>
+
+
+                        <li class="text-center border-right text-white"><a href="#" class="text-white">	<i class="fas fa-language mr-2"></i>भाषा परिवर्तन</a></li>
+						<li class="text-center border-right text-white">
+							<a href="/checkout" class="text-white"><i class="fas fa-truck mr-2"></i>Kathmandu Nepal</a>
+						</li>
+						<li class="text-center border-right text-white">
+							<a href="/order" class="text-white">
+								<i class="fas fa-phone mr-2"></i> Track My order</a></li>
+						{% if request.user.is_authenticated %}
+						<li class="text-center border-right text-white">
+
+							<a href="{{ profile.get_absolute_url }}" class="text-white">
+								<i class="fa fa-user"></i> {{ request.user}} </a>
+						</li>
+						<li class="text-center  boarder-right text-white">
+							<a href="logout"  class="text-white">
+								<i class="fas fa-sign-out-alt mr-2"></i>Log out </a>
+						</li>
+						{% else %}
+						<li class="text-center border-right text-white">
+							<a href="login"  class="text-white">
+								<i class="fas fa-sign-in-alt mr-2"></i> Sign in </a>
+						</li>
+						<li class="text-center  boarder-right text-white">
+							<a href="signup"  class="text-white">
+								<i class="fas fa-sign-out-alt mr-2"></i>Sign up</a>
+						</li>
+					{% endif %}
+					</ul>
+					<!-- //header lists -->
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<!-- //top-header -->
+<div class="main-top-bottom">
+	<!-- header-bottom-->
+	<div class="header-bot">
+		<div class="container">
+			<div class="row header-bot_inner_wthreeinfo_header_mid">
+				<!-- logo -->
+				<div class="col-md-3 logo_agile">
+					<h6 class="text-center">
+						<a href="index.html" class="font-weight-bold font-italic">
+							<img src="http://allbachelor.com/img/logo.png" alt=" " class="img-fluid" height="50px" width="50px">allbachelor-shop
+
+						</a>
+					</h6>
+				</div>
+				<!-- //logo -->
+				<!-- header-bot -->
+				<div class="col-md-9 header mt-4 mb-md-0 mb-4">
+					<div class="row">
+						<!-- search -->
+						<div class="col-10 agileits_search">
+							<form class="form-inline" action='{% url "shop:query" %}' method="GET">
+								<input class="form-control mr-sm-2" name="q" type="search" placeholder="Search" aria-label="Search" required>
+								<button class="btn my-2 my-sm-0" type="submit">Search</button>
+							</form>
+						</div>
+
+						<!-- //search -->
+						<!-- cart details -->
+						<div class="col-2 top_nav_right text-center mt-sm-0 mt-2">
+							<div class="wthreecartaits wthreecartaits2 cart cart box_1">
+
+									<div href="#"><button class="btn w3view-cart" type="submit" name="submit" value="">
+										<i class="fas fa-cart-arrow-down"></i>
+									</button>
+									</div>
+
+							</div>
+						</div>
+						<!-- //cart details -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- shop locator (popup) -->
+	<!-- //header-bottom -->
+	<!-- navigation -->
+	<div class="navbar-inner">
+		<div class="container">
+
+			<nav class="navbar navbar-expand-lg navbar-light bg-light">
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+				    aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+	<header id="header">
+                    <div class="col-lg-12 col-md-4">
+                        <div class="vertical-menu vertical-category-block">
+							<a href="{% url 'shop:shophome' %}">
+                            <div class="block-title">
+                                <span class="menu-title">All Categories</span>
+
+                            </div>
+								</a>
+
+
+            </div>
+
+
+        </div>
+    </header>
+
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav ml-auto text-center mr-xl-5">
+
+						<li class="nav-item dropdown mr-lg-2 mb-lg-0 mb-2">
+							<a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Electronics & appliances
+							</a>
+							<div class="dropdown-menu">
+								<div class="agile_inner_drop_nav_info p-4">
+									<h5 class="mb-3">Electronics </h5>
+									<div class="row">
+										<div class="col-sm-3 multi-gd-img">
+											<ul class="multi-column-dropdown">
+     					{% for e in electronics %}
+							<li class="menu-item"><a href ="{{e.get_absolute_url}}" class="menu-name">{{e.name}}</a></li>
+
+						{% endfor %}
+											</ul>
+										</div>
+										<div class="col-sm-3 multi-gd-img">
+											<ul class="multi-column-dropdown">
+												<li>
+													<a href="product.html">Laptops</a>
+												</li>
+												<li>
+													<a href="product.html">Drives & Storage</a>
+												</li>
+												<li>
+													<a href="product.html">Printers & Ink</a>
+												</li>
+												<li>
+													<a href="product.html">Networking Devices</a>
+												</li>
+												<li>
+													<a href="product.html">Computer Accessories</a>
+												</li>
+												<li>
+													<a href="product.html">Game Zone</a>
+												</li>
+												<li>
+													<a href="product.html">Software</a>
+												</li>
+											</ul>
+										</div>
+										<div class="col-sm-3 multi-gd-img">
+											<ul class="multi-column-dropdown">
+												<li>
+													<a href="product.html">Laptops</a>
+												</li>
+												<li>
+													<a href="product.html">Drives & Storage</a>
+												</li>
+												<li>
+													<a href="product.html">Printers & Ink</a>
+												</li>
+												<li>
+													<a href="product.html">Networking Devices</a>
+												</li>
+												<li>
+													<a href="product.html">Computer Accessories</a>
+												</li>
+												<li>
+													<a href="product.html">Game Zone</a>
+												</li>
+												<li>
+													<a href="product.html">Software</a>
+												</li>
+											</ul>
+										</div>
+										<div class="col-sm-3 multi-gd-img">
+											<ul class="multi-column-dropdown">
+												<li>
+													<a href="product.html">Laptops</a>
+												</li>
+												<li>
+													<a href="product.html">Drives & Storage</a>
+												</li>
+												<li>
+													<a href="product.html">Printers & Ink</a>
+												</li>
+												<li>
+													<a href="product.html">Networking Devices</a>
+												</li>
+												<li>
+													<a href="product.html">Computer Accessories</a>
+												</li>
+												<li>
+													<a href="product.html">Game Zone</a>
+												</li>
+												<li>
+													<a href="product.html">Software</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li class="nav-item dropdown mr-lg-2 mb-lg-0 mb-2">
+							<a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Appliances
+							</a>
+							<div class="dropdown-menu">
+								<div class="agile_inner_drop_nav_info p-4">
+									<h5 class="mb-3">TV, Appliances, Electronics</h5>
+									<div class="row">
+										<div class="col-sm-6 multi-gd-img">
+											<ul class="multi-column-dropdown">
+												<li>
+													<a href="product2.html">Televisions</a>
+												</li>
+												<li>
+													<a href="product2.html">Home Entertainment Systems</a>
+												</li>
+												<li>
+													<a href="product2.html">Headphones</a>
+												</li>
+												<li>
+													<a href="product2.html">Speakers</a>
+												</li>
+												<li>
+													<a href="product2.html">MP3, Media Players & Accessories</a>
+												</li>
+												<li>
+													<a href="product2.html">Audio & Video Accessories</a>
+												</li>
+												<li>
+													<a href="product2.html">Cameras</a>
+												</li>
+												<li>
+													<a href="product2.html">DSLR Cameras</a>
+												</li>
+												<li>
+													<a href="product2.html">Camera Accessories</a>
+												</li>
+											</ul>
+										</div>
+										<div class="col-sm-6 multi-gd-img">
+											<ul class="multi-column-dropdown">
+												<li>
+													<a href="product2.html">Musical Instruments</a>
+												</li>
+												<li>
+													<a href="product2.html">Gaming Consoles</a>
+												</li>
+												<li>
+													<a href="product2.html">All Electronics</a>
+												</li>
+												<li>
+													<a href="product2.html">Air Conditioners</a>
+												</li>
+												<li>
+													<a href="product2.html">Refrigerators</a>
+												</li>
+												<li>
+													<a href="product2.html">Washing Machines</a>
+												</li>
+												<li>
+													<a href="product2.html">Kitchen & Home Appliances</a>
+												</li>
+												<li>
+													<a href="product2.html">Heating & Cooling Appliances</a>
+												</li>
+												<li>
+													<a href="product2.html">All Appliances</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+
+						<li class="nav-item  mr-lg-2 mb-lg-0 mb-2">
+						<a class="nav-link" href="{% url 'shop:user_recommendation_list' %}">Recommendation</a>
+						</li>
+						<li class="nav-item mr-lg-2 mb-lg-0 mb-2">
+							<a class="nav-link" href="about.html">Trending</a>
+						</li>
+						<li class="nav-item mr-lg-2 mb-lg-0 mb-2">
+							<a class="nav-link" href="product.html">New Arrivals</a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link" href="contact.html">Contact Us</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+	</div>
+	<!-- //navigation -->
+
+
+
+    {% block body %}{% endblock %}
+
+{% block js %}{% endblock %}
+</div>
+</body>
+</html>

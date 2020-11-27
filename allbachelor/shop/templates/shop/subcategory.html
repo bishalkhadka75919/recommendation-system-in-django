@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="{% static 'shop/css/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all" />
+	<!-- Bootstrap css -->
+	<link href="{% static 'shop/css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+	<!-- Main css -->
+	<link rel="stylesheet" href="{% static 'shop/css/fontawesome-all.css' %}">
+	<!-- Font-Awesome-Icons-CSS -->
+	<link href="{% static 'shop/css/popuo-box.css' %}" rel="stylesheet" type="text/css" media="all" />
+	<!-- pop-up-box -->
+	<link href="{% static 'shop/css/menu.css' %}" rel="stylesheet" type="text/css" media="all" />
+	<!-- menu style -->
+
+	<link href="{% static 'shop/css/owl.carousel.css' %}" rel="stylesheet" type="text/css" media="all">
+	<!-- //Custom-Files -->
+
+	<!-- matrixfactorization fonts -->
+	<link href="//fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&amp;subset=latin-ext" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese"
+	    rel="stylesheet">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,700&subset=latin-ext" rel="stylesheet">
+</head>
+<body>
+
+<h1> {%if category %}{{ category.name}}{% else %}Products{% endif %}</h1>
+<div class="row">
+		{% for product in products %}
+<a href="{{product.get_absolute_url }}">
+        <div class="col-md-3 col-sm-6">
+            <div class="product-grid2">
+                <div class="product-image2">
+                    <a href="#">
+                        <img class="pic-1" src="{{ product.image.url }}">
+                        <img class="pic-2" src="{{ product.image.url }}">
+                    </a>
+                    <ul class="social">
+                        <li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
+                        <li><a href="#" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
+                        <li><a href="#" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                    </ul>
+                    <a class="add-to-cart" href="">Add to cart</a>
+                </div>
+                <div class="product-content">
+                    <h3 class="title"><a href="{{ product.get_absolute_url }}">{{product.name }}</a></h3>
+                    <span class="price">{{product.price}}</span>
+                    {{product.subcategory}}
+                </div>
+            </div>
+
+        </div>
+	{% endfor %}
+
+
+
+
+
+</body>
+</html>

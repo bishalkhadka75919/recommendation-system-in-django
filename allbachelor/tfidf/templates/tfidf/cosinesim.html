@@ -1,0 +1,42 @@
+{% extends 'shop/product_list.html' %}
+
+{% block body %}
+<h2>Cosine similarity Recommendations for {{username}}</h2>
+
+   <div class="container">
+
+        <div class="gallery">
+
+{% for product in context %}
+            <a href="{% url 'shop:product_detail' product.id %}">
+            <div class="gallery-item" tabindex="0">
+
+              {{ product.name }}
+
+                <img src="{{product.image.url}}"  class="gallery-image" alt="">
+
+                <div class="gallery-item-info">
+
+                    <ul>
+                        <li class="gallery-item-likes"><i class="fas fa-star" aria-hidden="true"></i>{{ product.average_rating | floatformat }} average rating</li>
+                        <li class="gallery-item-comments"><i class="fas fa-comment" aria-hidden="true"></i> {{ product.review_set.count }} reviews</li>
+                    </ul>
+                </div>
+
+            </div>
+                </a>
+          {% endfor %}
+<p>
+
+</p>
+
+{% endblock %}
+        </div>
+   </div>
+
+</head>
+<body>
+
+
+
+

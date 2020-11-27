@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static markdown_deux_tags %}
+
+{% block css %}
+
+    <style>
+        #avatar {
+            margin-bottom: 20px;
+        }
+        h5.bio {
+            font-size: 40px;
+        }
+    </style>
+
+{% endblock %}
+
+
+{% block body %}
+
+    <article>
+        <div class="container" id="avatar">
+            <div class="row">
+                <div class="col-md-6">
+                    {% if profile.avatar %}
+                        <img src="{{ MEDIA_URL }}{{ profile.avatar }}" alt="{{ profile.first_name }} {{ profile.last_name }}">
+                    {% endif %}
+                </div>
+                <div class="col-md-6">
+                    <h1>Name: {{ profile.first_name }} {{ profile.last_name }}</h1>
+                    <h2>Email: {{ profile.email }}</h2>
+                    <p>Date of Birth: {{ profile.date_of_birth }}</p>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h5 class="bio">BIO</h5>
+                    <hr>
+                    <p>{{ profile.display_bio|markdown }}</p>
+                    <hr>
+                    {% if profile.city %}
+                        <p>City: {{ profile.city }}</p>
+                    {% endif %}
+                    {% if profile.state %}
+                        <p>State: {{ profile.state }}</p>
+                    {% endif %}
+                    {% if profile.country_of_residence %}
+                        <p>Country: {{ profile.country_of_residence }}</p>
+                    {% endif %}
+                    {% if profile.favorite_animal %}
+                        <p>Animal: {{ profile.favorite_animal }}</p>
+                    {% endif %}
+                    {% if profile.hobby %}
+                        <p>Hobby: {{ profile.hobby }}</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <a href="{% url "edit-profile" profile.slug %}" class="button">Edit</a>
+    <a href="{% url "change-password" profile.slug %}" class="button">Change Password</a>
+
+{% endblock %}

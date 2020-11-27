@@ -1,0 +1,57 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+{% block title %} Shop Cart List{% endblock %}
+{% block css %}
+<link href="{%static 'shop/css/shoppingcart.css' %}" rel="stylesheet">
+{% endblock %}
+{% block body %}
+
+    <div class="wrap cf">
+  <div class="heading cf">
+    <h1>My Cart</h1>
+    <a href="" class="continue">Continue Shopping</a>
+  </div>
+  <div class="cart">
+    <ul class="cartWrap">
+        {% for rs in shopcart %}
+      <li class="items even">
+    <div class="infoWrap">
+        <div class="cartSection">
+        <img src="{{rs.product.image.url}}" alt="" class="itemImg" />
+          <p class="itemNumber">#QUE-007544-002</p>
+          <h3>{{rs.product.name}}</h3>
+
+           <p> <input type="text"  class="qty" placeholder="{{rs.quantity}}"/>  X <del>Rs.{{rs.product.price}}</del> Rs.{{ rs.product.discount_price }}</p>
+
+        </div>
+
+        <div class="prodTotal cartSection">
+          <p class="stockStatus">= Rs. {{ rs.amount }}</p>
+        </div>
+              <div class="cartSection removeWrap">
+           <a href="/order/deletefromcart/{{ rs.id }}" class="remove">x</a>
+        </div>
+      </div>
+      </li>
+        {% endfor %}
+
+
+    </ul>
+  </div>
+
+  <div class="promoCode"><label for="promo">Have A Promo Code?</label><input type="text" name="promo" placholder="Enter Code" />
+  <a href="#" class="btn"></a></div>
+
+  <div class="subtotal cf">
+    <ul>
+      <li class="totalRow"><span class="label">Subtotal</span><span class="value">Rs. {{ carttotal }}</span></li>
+
+          <li class="totalRow"><span class="label">Shipping</span><span class="value">Free Shipping</span></li>
+
+            <li class="totalRow"><span class="label">Tax</span><span class="value">{{carttax}}</span></li>
+            <li class="totalRow final"><span class="label">Total</span><span class="value">{{cartwithtax }}</span></li>
+      <li class="totalRow"><a href="/order/checkout" class="btn continue">Checkout</a></li>
+    </ul>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,81 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+{% block title %} Shop Cart List{% endblock %}
+{% block css %}
+<link href="{%static 'shop/css/orderlist.css' %}" rel="stylesheet">
+
+
+{% endblock %}
+{% block body %}
+
+    <!-- BREADCRUMB -->
+<div id="demo">
+  <center><h1>My orders</h1></center>
+
+
+  <!-- Responsive table starts here -->
+  <!-- For correct display on small screens you must add 'data-title' to each 'td' in your table -->
+  <div class="table-responsive-vertical shadow-z-1">
+  <!-- Table starts here -->
+  <table id="table" class="table table-hover table-mc-light-blue">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Full Name</th>
+          <th>Date</th>
+          <th>mobile number</th>
+            <th>city</th>
+            <th>Total</th>
+            <th>status</th>
+            <th>detail</th>
+        </tr>
+      </thead>
+      <tbody>
+       {% for rs in orders %}
+        <tr>
+          <td data-title="ID">{{rs.id}}</td>
+          <td data-title="Full Name">{{ rs.name }}  {{ rs.surname }}</td>
+            <td>{{rs.create_at}}</td>
+            <td>{{ rs.phone }}</td>
+            <td>{{ rs.city }}</td>
+            <td>Rs. {{ rs.total }}</td>
+            <td>{{ rs.status }}</td>
+          <td data-title="Link">
+            <a href="/order/detail/{{ rs.id }}" target="_blank">Detail</a>
+          </td>
+
+{% endfor %}
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+
+
+
+
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                    </div>
+
+
+
+
+                </div>
+
+
+
+
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+
+{% endblock %}

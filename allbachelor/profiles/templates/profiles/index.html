@@ -1,0 +1,104 @@
+{% extends 'profiles/base.html' %}
+{% load staticfiles %}
+{% load static markdown_deux_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% block css %}
+<link href="{%static 'profiles/css/profiles.css' %}" rel="stylesheet">
+  {% endblock %}
+  </head>
+<!-- START MAIN -->
+<body>
+
+  {% block body %}
+<header>
+  {% if profiles %}
+        {% for profile in profiles %}
+    <div class="container">
+        <div class="profile">
+            <div class="profile-image">
+{% if profile.avatar %}
+                <img src="{{ profile.avatar.url }}" alt="{{ profile.first_name }} {{ profile.last_name }}" width="80%" height="80%">
+  {% endif %}
+            </div>
+            <div class="profile-user-settings">
+              <a href="{{ profile.get_absolute_url }}">  <h5 class="profile-user-name" style="color:black; "><b>{{ profile.first_name }} {{ profile.last_name }}</b></h5></a>
+
+          <button class="btn btn-outline-primary" >
+            <a href="{% url 'profiles:edit-profile' profile.slug %}">Edit <i class="fas fa-cog" aria-hidden="true"></i></a>
+          </button>
+           <button class="btn btn-outline-primary"> <a href="{% url 'profiles:change-password' profile.slug %}" class="button">Change Password</a></button>
+
+
+            </div>
+
+            <div class="profile-stats">
+              </h2>
+              <p style="color:black">{{ profile.email }}{% if profile.city %}| {{ profile.city }} {% endif %}| {% if profile.country_of_residence %}
+                         {{ profile.country_of_residence }}</p>
+                    {% endif %}</p>
+
+                <ul>
+                    <li><span class="profile-stat-count">DOB:</span>{{ profile.date_of_birth }} </li>
+                   {% if profile.hobby %}
+
+                    <li><span class="profile-stat-count">Hobby:</span>  {{ profile.hobby }}</li>
+                   {% endif %}
+                </ul>
+
+            </div>
+            <div class="profile-bio">
+              {{ profile.display_bio|markdown }}
+                </p>
+
+
+            </div>
+
+        </div>
+        <!-- End of profile section -->
+
+    </div>
+    <!-- End of container -->
+
+</header>
+
+<main>
+
+    <div class="container">
+
+        <div class="gallery">
+{% if product_list %}
+
+{% for product in product_list %}
+            <a href="{% url 'shop:product_detail' product.id %}">
+            <div class="gallery-item" tabindex="0">
+
+              {{ product.name }}
+
+                <img src="{{product.image.url}}"  class="gallery-image" alt="">
+
+                <div class="gallery-item-info">
+
+                    <ul>
+                        <li class="gallery-item-likes"><i class="fas fa-star" aria-hidden="true"></i>{{ product.average_rating | floatformat }} average rating</li>
+                        <li class="gallery-item-comments"><i class="fas fa-comment" aria-hidden="true"></i> {{ product.review_set.count }} reviews</li>
+                    </ul>
+
+                </div>
+
+            </div>
+                </a>
+          {% endfor %}
+          {% else %}
+    <p>No products are available.</p>
+{% endif %}
+<div class="loader"></div>
+        </div>
+</body>
+{% endfor %}
+    {% else %}
+        <p>No Profile</p>
+please sign in or sign up
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'reviews/base.html' %}
+
+{% block title %}
+<h2><a href="{% url 'reviews:wine_detail' review.wine.id %}">{{ review.wine.name }}</a></h2>
+{% endblock %}
+
+{% block content %}
+<h4>Rated {{ review.rating }} of 5 by <a href="{% url 'reviews:user_review_list' review.user_name %}" >{{ review.user_name }}</a></h4>
+<p>{{ review.pub_date }}</p>
+<p>{{ review.comment }}</p>
+{% endblock %}

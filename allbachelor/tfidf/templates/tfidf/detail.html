@@ -1,0 +1,20 @@
+{% extends 'shop/product_list.html' %}
+{% block body %}
+
+
+<div class="row">
+    {% for a in content.itertuples %}
+    <div class="col-md-3">
+        <div style="margin-top:10px;"
+            class='card  blue-gradient mb-3' style="max-width: 20rem;">
+            <div class="card-header blue-gradient">{{a.name}}</div>
+            <div class="card-body">
+
+                <p class="card-text ">{{a.description}}</p>
+            </div>
+        </div>
+    </div>
+
+    {% endfor %}
+</div>
+{% endblock body %}

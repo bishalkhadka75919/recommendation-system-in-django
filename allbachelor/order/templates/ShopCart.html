@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Books</h1>
+
+<table border="1">
+<thead>
+    <tr>
+    <th>Name</th>
+    <th>Pages</th>
+    <th>View</th>
+    <th>Edit</th>
+    <th>Delete</th>
+    </tr>
+</thead>
+<tbody>
+    {% for book in object_list %}
+    <tr>
+    <td>{{ book.product }}</td>
+    <td>{{ book.user }}</td>
+    <td>{{ book.quantity }}</td>
+
+    </tr>
+    {% endfor %}
+</tbody>
+</table>
+
+
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+{% extends 'admin/base.html' %}
+{% load static %}
+{% block branding %}
+<h1 id ="head">
+    <img src="{% static 'shop/images/logo.png' %}" alt="allbachelor" height="50" width="80" class="brand_img">
+    Welcome to Allbachelor-admin
+</h1>
+{% endblock %}
+
+
+{% block extrastyle %}
+<link rel="stylesheet" href="{%static 'shop/css/admin.css' %}">
+{% endblock %}

@@ -1,0 +1,14 @@
+	 <h3>Categories</h3>
+
+
+				 {% for c in categories %}
+    <li {% if category.slug == c.slug %} {%endif %}>
+        <a href ="{{ c.get_absolute_url }}">{{c.name}}</a>
+        {{c.id}}
+        {{c.slug}}
+    </li>
+
+	{% endfor %}
+
+
+
